@@ -27,12 +27,12 @@ const getAgentById = async( request, response) => {
 
 const addAgent = async(request, response) => {
     const agent = request.body;
-    if (!agent.name || !agent.image) {
+    if (!agent.name || !agent.image || !agent.rol) {
         return response.status(403).json({ msg: "Faltan parámetros" });
     }
     const doc = new Agent(agent);
     await doc.save();
-    response.json({ msg: "Agente creado", data: { id: doc._id, name: doc.name, image: doc.image } });
+    response.json({ msg: "Agente creado", data: { id: doc._id, name: doc.name} });
 }
 
 const updateAgent = async (request, response) => {
