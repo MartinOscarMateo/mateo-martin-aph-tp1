@@ -2,8 +2,14 @@ import Rank from "../models/RankModel.js";
 
 const getRanks = async (request, response) => {
     try {
-        const ranks = await Rank.find();
-        
+        const filter = {};
+        if (request.query.name) {
+            filter.name = request.query.name;
+        }
+        const ranks = await Rank.find(filter);
+        if (ranks.length === 0) {
+            return response.status(404).json({ msg: "No se encontraron rangos con ese filtro." });
+        }
         response.status(200).json(ranks);
     } catch (error) {
         response.status(500).json({ msg: "Error al obtener los rangos" });

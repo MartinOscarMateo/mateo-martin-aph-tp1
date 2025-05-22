@@ -2,8 +2,14 @@ import Agent from "../models/AgentModel.js";
 
 const getAgents = async (request, response) => {
     try {
-        const agents = await Agent.find();
-        
+        const filter = {};
+        if (request.query.rol) {
+            filter.rol = request.query.rol;
+        }
+        const agents = await Agent.find(filter);
+        if (agents.length === 0) {
+            return response.status(404).json({ msg: "No se encontraron agentes con ese rol." });
+        }
         response.status(200).json(agents);
     } catch (error) {
         response.status(500).json({ msg: "Error al obtener los agentes" });

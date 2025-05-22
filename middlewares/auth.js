@@ -18,7 +18,7 @@ const validacionToken = (req, res, next) => {
         }
 
         console.log( { decoded});
-        req.userId.userId = decoded.id;
+        req.userId = decoded.id;
         next();
     })
     

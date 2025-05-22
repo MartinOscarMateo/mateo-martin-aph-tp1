@@ -36,6 +36,7 @@ const getUsers = async( request, response) =>{
     const users = await User.find();
     response.status(200).json( users);
 }
+
 const getUserById = async( request, response) => {
     const id = request.params.id;
     const user = request.body;
@@ -47,6 +48,7 @@ const getUserById = async( request, response) => {
         response.status(404).json({msg: 'No se encontro el usuario'});
     }
 }
+
 const addUser = async(request, response) => {
     console.log("BODY:", request.body);
     const user = request.body;
@@ -65,11 +67,15 @@ const updateUser =  async (request, response)=>{
     const id = request.params.id;
     const user =  request.body;
 
+    if (user.password) {
+        user.password = await bcrypt.hash(user.password, salt);
+    }
+
     const newUser = await User.findByIdAndUpdate(id, user,  { new: true} );
 
     console.log( {newUser} );
     if ( newUser) {
-        response.json( { msg: 'Usuarios Actualizado', data :{newUser} } );
+        response.json( { msg: 'Usuario Actualizado', data :{newUser} } );
     } else {
         response.status(404).json({msg: 'No se encontro el usuario'});
     }
