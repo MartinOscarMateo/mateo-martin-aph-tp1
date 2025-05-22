@@ -1,0 +1,78 @@
+header, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+}
+
+header div p {
+    margin: 0;
+    line-height: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: 0.2rem;
+}
+
+header {
+    height: 10vh;
+    border-bottom: 1px solid #ccc;
+    background-color: black;
+}
+
+main {
+    height: 80vh;
+}
+
+.end-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+h2 {
+    margin: 0;
+}
+
+.w-33 {
+    border: #ccc4 1px solid;
+    border-radius: 7px;
+}
+
+.w-33 h2 {
+    background-color: black;
+    border-radius: 7px 7px 0 0;
+}
+
+.borderrr {
+    border-top: #ccc4 1px solid;
+}
+
+.pretty-json {
+    color: #eee;
+    padding: 1rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.json-key {
+    color: #ff5555; /* red */
+}
+
+.json-value {
+    color: #50fa7b; /* green */
+}
+
+.json-brace {
+    color: #eee;
+}
+
+footer {
+    height: 10vh;
+    border-top: 1px solid #ccc;
+    background-color: black;
+}
