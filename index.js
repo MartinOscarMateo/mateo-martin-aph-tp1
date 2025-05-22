@@ -66,12 +66,12 @@ db.once('open', async () => {
 
     // Agregamos Rangos
     const ranksToAdd = [
-        { name: "Bronce", Image: "Bronce.png" },
-        { name: "Plata", Image: "Plata.png" },
-        { name: "Oro", Image: "Oro.png" },
-        { name: "Platino", Image: "Platino.png" },
-        { name: "Diamante", Image: "Diamante.png" },
-        { name: "Inmortal", Image: "Inmortal.png" }
+        { name: "Bronce", image: "Bronce.png" },
+        { name: "Plata", image: "Plata.png" },
+        { name: "Oro", image: "Oro.png" },
+        { name: "Platino", image: "Platino.png" },
+        { name: "Diamante", image: "Diamante.png" },
+        { name: "Inmortal", image: "Inmortal.png" }
     ];
 
     // Evitamos duplicados
